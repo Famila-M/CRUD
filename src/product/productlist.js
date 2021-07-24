@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import React from "react";
 
 import { Link } from "react-router-dom";
+import ProductContext from "../productContext";
 
 export default function ProductList(){
+    let product = useContext(ProductContext);
     return <>
     <h1 class="h3 mb-2 text-gray-800">Tables</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
@@ -22,56 +25,36 @@ export default function ProductList(){
                     <tr>
                         <th>ProductName</th>
                         <th>Brand</th>
-                        <th>Processor</th>
-                        <th>Battery</th>
+                        <th>Color</th>
                         <th>Price</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                {/* <tfoot>
+                <tfoot>
                     <tr>
                         <th>ProductName</th>
                         <th>Brand</th>
-                        <th>Processor</th>
-                        <th>Battery</th>
+                        <th>Color</th>
                         <th>Price</th>
-                        <th>
-                            <Link to="/productedit/1">Product Edit</Link>
-                        </th>
+                        <th>Action</th>
                     </tr>
-                </tfoot> */}
+                </tfoot>
                 <tbody>
-                    <tr>
-                        <th>MacBook Air</th>
-                        <th>Apple</th>
-                        <th>1.8GHz Intel Core i5 </th>
-                        <th>7150mAh</th>
-                        <th>117900</th>
-                        <th>
-                            <Link to="/productedit/1">Product Edit</Link>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>ZenBook 14</th>
-                        <th>ASUS</th>
-                        <th>1.8 GHz ‎Intel ‎Core i7</th>
-                        <th>‎50 Watt Hours</th>
-                        <th>99200</th>
-                        <th>
-                            <Link to="/productedit/2">Product Edit</Link>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Lenovo</th>
-                        <th>Lenovo</th>
-                        <th>‎1.8 GHz AMD ‎Ryzen 7</th>
-                        <th>‎57 Watt Hours</th>
-                        <th>68990</th>
-                        <th>
-                            <Link to="/productedit/3">Product Edit</Link>
-                            </th>
-                    </tr>
-
+                {
+                                product.productList.map((obj) => 
+                                {
+                                    return  <tr>
+                                    <td>{obj.ProductName}</td>
+                                    <td>{obj.Brand}</td>
+                                    <td>{obj.Color}</td>
+                                    <td>{obj.Price}</td>
+                                    <td>
+                                        <Link to="/productedit/2">Product Edit</Link>
+                                    </td>
+                                </tr>
+                                })
+                            }
+                    
                         </tbody>
                     </table>
                 </div>

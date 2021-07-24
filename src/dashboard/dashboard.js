@@ -1,8 +1,14 @@
+/* eslint-disable no-unused-vars */
 import Card from "./card";
 import Chart from "./chart";
 import Projectcard from "./projectcard";
+import { useContext } from "react";
+import UserContext from "../userContext";
+import ProductContext from "../productContext";
 
 export default function Dashboard() {
+    let data = useContext(UserContext)
+    let product = useContext(ProductContext)
     return <>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>

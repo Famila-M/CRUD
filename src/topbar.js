@@ -1,5 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable no-unused-vars */
+import { useContext } from "react";
+import ProductContext from "./productContext";
+import UserContext from "./userContext";
+
 export default function Topbar() {
+    let data = useContext(UserContext)
+    let product = useContext(ProductContext)
     return <>
      
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -8,7 +15,7 @@ export default function Topbar() {
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
+                   
                     
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">

@@ -2,6 +2,8 @@ import './App.css';
 import Sidebar from './sidebar';
 import Topbar from './topbar';
 import Dashboard from './dashboard/dashboard';
+import { UserProvider } from "./userContext";
+import {ProductProvider} from './productContext';
 
 import {
   BrowserRouter as Router,
@@ -20,6 +22,8 @@ function App() {
     <Router>
     <div id="wrapper">
       <Sidebar></Sidebar>
+      <UserProvider>
+        <ProductProvider>
       <div id="content-wrapper" class="d-flex flex-column">
        <div id="content">
          <Topbar></Topbar>
@@ -45,6 +49,8 @@ function App() {
          </div>
        </div>
       </div>
+      </ProductProvider>
+      </UserProvider>
     </div>
     </Router>
   );
